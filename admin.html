@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Admin - Diuine used auto sales</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="css/Listing.css">
+        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	</head>
+	<body  class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li>
+								<a href="#" class="icon solid fa-angle-down">Menu</a>
+								<ul>
+                                    <li><a href="inventory.html">Inventory</a></li>
+									<li><a href="contact.html">Contact</a></li>
+                                    <li><a href="javascript:logout();">Log out</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<section id="main" class="container">
+<!-- main content -->
+    <form id="createCar">
+        <!-- /////////////////////////////-->
+       <div class="outerlayer">
+  <div class="Names" >
+    <div>
+        <label  for="name">Car name<span class="required">*</span></label><br>
+       </div>
+  </div>
+  <div class="inputs" style="">
+        <p>Car name<span class="required">*</span></p>
+        <input  class="input" id="carName" type="text"  maxlength="80" required />
+  </div>
+</div>
+ <!-- /////////////////////////////-->
+    <div style="text-align: center;padding: 10px">
+<h4>Photos</h4>
+        <p>Upload up to 12 photos</p>
+        <span  class="btn btn-success fileinput-button">
+            <span><img style="width: 50px;height: auto;" src="images/icons8-upload-48.png"></span>
+            <input type="file" name="files[]" id="files" multiple accept="image/jpeg, image/png, image/jpg,"><br />
+        </span>
+    </div>
+        <div>
+        <div class="imageOutput" style="">
+        <output class="outputPic" style="margin-left: auto;margin-right: auto;display: block" id="Filelist"></output>
+        </div>
+        </div>
+<br><br>
+<!-- /////////////////////////////-->
+
+   <div class="doublerow">
+  <div class="doublecolumn C_left" style="">
+ <p>Miles<span class="required">*</span></p>
+        <input spellcheck="" class="input" id="miles" type="text"  maxlength="80" required />
+  </div>
+  <div class="doublecolumn C_right" style="">
+      <p>Model<span class="required">*</span></p>
+<input class="input" id="model" type="text"  maxlength="80" required />
+  </div>
+</div> 
+        
+<!-- /////////////////////////////-->  
+   <div class="doublerow">
+  <div class="doublecolumn C_left" style="">
+    <p>Price</p>
+ <input  class="input" id="price" type = "text"  name="" required> 
+ 
+  </div>
+  <div class="doublecolumn C_right" style="">
+      <p>Car ID</p>
+ <input class="input" id="id" type = "text"  name="" required> 
+  </div>
+</div>
+<!-- /////////////////////////////-->
+<div class="textArea">
+ <p>Car description <span class="required">*</span></p>   
+   <textarea  placeholder="Type car description here" rows="50" name="comment[text]" id="carDescription" cols="80"  autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" required></textarea>   
+</div>
+
+   <input style="margin-left: auto;margin-right: auto;display: block" class="submit" type="button" onclick="uploadCar()" value="Publish Car"> 
+    </form>
+            
+<!-- /////////////////////////////-->  
+   <div class="doublerow">
+  <div class="doublecolumn C_left" style="">
+    <p>Delete Car from inventory</p>
+ <input spellcheck="true" class="input" type = "text" placeholder="Enter id of the car to be deleted"  name="cellularbrand"> 
+ <button class="submit" onclick="deleteCar()">Delete</button>
+  </div>
+  <div class="doublecolumn C_right" style="">
+  </div>
+</div>
+				</section>
+
+						<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Diune Used Auto Sales. All rights reserved.</li><li>Design: <a href="https://jjwilly24.github.io/myportfolio/">Joey's web design</a></li>
+					</ul>
+				</footer>
+
+		</div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-storage.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-analytics.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDUt7CR0lVmJMpT1ufkz8vg9PKZag7Ylv8",
+    authDomain: "diuineusedautosales-7b57c.firebaseapp.com",
+    databaseURL: "https://diuineusedautosales-7b57c.firebaseio.com",
+    projectId: "diuineusedautosales-7b57c",
+    storageBucket: "diuineusedautosales-7b57c.appspot.com",
+    messagingSenderId: "701120569121",
+    appId: "1:701120569121:web:5a35065f57a53ec3336860",
+    measurementId: "G-4BXZ9M55ZM"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+        //make auth and firestore references
+  const auth = firebase.auth();
+  const db = firebase.firestore();  
+</script>
+	<script src="js/cars.js"></script>
+		<!-- Scripts -->
+             <script src="https://code.jquery.com/jquery.min.js"></script>
+             <script src="js/listing.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

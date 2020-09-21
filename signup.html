@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sign up</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/carAutoSales.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Account Signup
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5"id="signup-form">
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input id="userName" class="input100" type="text" name="username" placeholder="User name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+                    
+                    <div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input id="txtEmail" class="input100" type="text" name="username" placeholder="Email">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input id="txtPassword" class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+                        <input id="visible" type="checkbox" onclick="myFunction()">Show Password
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button onclick="signup()" class="login100-form-btn">
+							Sign up
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+    
+    <script>
+function myFunction() {
+  var x = document.getElementById("txtPassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-analytics.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDUt7CR0lVmJMpT1ufkz8vg9PKZag7Ylv8",
+    authDomain: "diuineusedautosales-7b57c.firebaseapp.com",
+    databaseURL: "https://diuineusedautosales-7b57c.firebaseio.com",
+    projectId: "diuineusedautosales-7b57c",
+    storageBucket: "diuineusedautosales-7b57c.appspot.com",
+    messagingSenderId: "701120569121",
+    appId: "1:701120569121:web:5a35065f57a53ec3336860",
+    measurementId: "G-4BXZ9M55ZM"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+        //make auth and firestore references
+  const auth = firebase.auth();
+  const db = firebase.firestore();  
+</script>
+	<script src="js/cars.js"></script>
+<!--===============================================================================================-->
+<!--	<script src="js/main.js"></script>-->
+
+</body>
+</html>
